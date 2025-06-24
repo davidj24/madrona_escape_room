@@ -206,7 +206,9 @@ static void loadRenderObjects(render::RenderManager &render_mgr)
     render_asset_paths[(size_t)SimObject::Plane] =
         (std::filesystem::path(DATA_DIR) / "plane.obj").string();
     render_asset_paths[(size_t)SimObject::BasketballHoop] =
-        (std::filesystem::path(DATA_DIR) / "basketball_hoop.obj").string();
+        (std::filesystem::path(DATA_DIR) / "hoop.obj").string();
+    render_asset_paths[(size_t)SimObject::Basketball] =
+        (std::filesystem::path(DATA_DIR) / "basketball.obj").string();
 
     std::array<const char *, (size_t)SimObject::NumObjects> render_asset_cstrs;
     for (size_t i = 0; i < render_asset_paths.size(); i++) {
@@ -231,6 +233,7 @@ static void loadRenderObjects(render::RenderManager &render_mgr)
         { math::Vector4{0.5f, 0.3f, 0.3f, 0.0f},  0, 0.8f, 0.2f,},
         { render::rgb8ToFloat(230, 20, 20),   -1, 0.8f, 1.0f },
         { render::rgb8ToFloat(230, 230, 20),   -1, 0.8f, 1.0f },
+        { math::Vector4{1.f, 1.f, 1.f, 0.0f}, 2, 0.5f, 1.0f,},
     });
 
     // Override materials
@@ -242,7 +245,7 @@ static void loadRenderObjects(render::RenderManager &render_mgr)
     render_assets->objects[(CountT)SimObject::Agent].meshes[2].materialIDX = 3;
     render_assets->objects[(CountT)SimObject::Button].meshes[0].materialIDX = 6;
     render_assets->objects[(CountT)SimObject::Plane].meshes[0].materialIDX = 4;
-    render_assets->objects[(CountT)SimObject::BasketballHoop].meshes[0].materialIDX = 0;
+    render_assets->objects[(CountT)SimObject::BasketballHoop].meshes[0].materialIDX = 7;
 
     imp::ImageImporter img_importer;
     Span<imp::SourceTexture> imported_textures = img_importer.importImages(
@@ -251,6 +254,8 @@ static void loadRenderObjects(render::RenderManager &render_mgr)
                "green_grid.png").string().c_str(),
             (std::filesystem::path(DATA_DIR) /
                "smile.png").string().c_str(),
+            (std::filesystem::path(DATA_DIR) /           // Add this
+               "basketball_hoop_texture.jpg").string().c_str(),
         });
 
     render_mgr.loadObjects(
@@ -275,7 +280,9 @@ static void loadPhysicsObjects(PhysicsLoader &loader)
     asset_paths[(size_t)SimObject::Button] =
         (std::filesystem::path(DATA_DIR) / "cube_collision.obj").string();
     asset_paths[(size_t)SimObject::BasketballHoop] =
-        (std::filesystem::path(DATA_DIR) / "basketball_hoop.obj").string();
+        (std::filesystem::path(DATA_DIR) / "cube_collision.obj").string();
+    asset_paths[(size_t)SimObject::Basketball] =
+        (std::filesystem::path(DATA_DIR) / "cube_collision.obj").string();
 
     std::array<const char *, (size_t)SimObject::NumObjects - 1> asset_cstrs;
     for (size_t i = 0; i < asset_paths.size(); i++) {

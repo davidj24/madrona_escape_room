@@ -383,9 +383,9 @@ static Entity makeCube(Engine &ctx,
 static Entity makeBasketballHoop(Engine &ctx,
                                  float hoop_x,
                                  float hoop_y,
-                                 float hoop_z = 3.0f)
+                                 float hoop_z = 0.0f)
 {
-    Entity hoop = ctx.makeRenderableEntity<PhysicsEntity>();
+    Entity hoop = ctx.makeRenderableEntity<BasketballHoopEntity>();
     setupRigidBodyEntity(
         ctx,
         hoop,
@@ -394,18 +394,47 @@ static Entity makeBasketballHoop(Engine &ctx,
             hoop_y,
             hoop_z,
         },
-        Quat { 1, 0, 0, 0 },
+        Quat::angleAxis(math::pi/2.f, Vector3{1, 0, 0}),
         SimObject::BasketballHoop,
         EntityType::BasketballHoop,
         ResponseType::Static,
         Diag3x3 {
-            1.0f,
-            0.5f,
-            0.5f,
+            0.25f,
+            0.25f,
+            0.25f,
         });
     registerRigidBodyEntity(ctx, hoop, SimObject::BasketballHoop);
 
     return hoop;
+}
+
+
+static Entity makeBasketball(Engine &ctx,
+                                 float ball_x,
+                                 float ball_y,
+                                 float ball_z = 1.0f)
+{
+    Entity ball = ctx.makeRenderableEntity<BasketballEntity>();
+    setupRigidBodyEntity(
+        ctx,
+        ball,
+        Vector3 {
+            ball_x,
+            ball_y,
+            ball_z,
+        },
+        Quat::angleAxis(math::pi/2.f, Vector3{1, 0, 0}),
+        SimObject::Basketball,
+        EntityType::Basketball,
+        ResponseType::Static,
+        Diag3x3 {
+            0.25f,
+            0.25f,
+            0.25f,
+        });
+    registerRigidBodyEntity(ctx, ball, SimObject::Basketball);
+
+    return ball;
 }
 
 
@@ -472,14 +501,16 @@ static CountT makeDoubleButtonRoom(Engine &ctx,
     Entity b = makeButton(ctx, b_x, b_y);
 
     Entity hoop = makeBasketballHoop(ctx, 0.0f, y_min + consts::roomLength / 2.f);
+    Entity ball = makeBasketball(ctx, 0.0f, y_min + consts::roomLength / 2.f);
 
     setupDoor(ctx, room.door, { a, b }, true);
 
     room.entities[0] = a;
     room.entities[1] = b;
     room.entities[2] = hoop;
+    room.entities[3] = ball;
 
-    return 2;
+    return 3;
 }
 
 // This room has 3 cubes blocking the exit door as well as two buttons.

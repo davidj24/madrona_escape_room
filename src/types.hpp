@@ -156,6 +156,7 @@ enum class EntityType : uint32_t {
     Agent,
     Door,
     BasketballHoop,
+    Basketball,
     NumTypes,
 };
 
@@ -268,6 +269,12 @@ struct PhysicsEntity : public madrona::Archetype<
 > {};
 
 struct BasketballHoopEntity : public madrona::Archetype<
+    RigidBody,
+    EntityType,
+    madrona::render::Renderable
+> {};
+
+struct BasketballEntity : public madrona::Archetype<
     RigidBody,
     EntityType,
     madrona::render::Renderable
