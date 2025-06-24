@@ -155,6 +155,7 @@ enum class EntityType : uint32_t {
     Wall,
     Agent,
     Door,
+    BasketballHoop,
     NumTypes,
 };
 
@@ -195,7 +196,10 @@ struct LevelState {
     Room rooms[consts::numRooms];
 };
 
-/* ECS Archetypes for the game */
+
+
+
+// ======================================================== ECS Archetypes ========================================================
 
 // There are 2 Agents in the environment trying to get to the destination
 struct Agent : public madrona::Archetype<
@@ -258,6 +262,12 @@ struct ButtonEntity : public madrona::Archetype<
 // Generic archetype for entities that need physics but don't have custom
 // logic associated with them.
 struct PhysicsEntity : public madrona::Archetype<
+    RigidBody,
+    EntityType,
+    madrona::render::Renderable
+> {};
+
+struct BasketballHoopEntity : public madrona::Archetype<
     RigidBody,
     EntityType,
     madrona::render::Renderable

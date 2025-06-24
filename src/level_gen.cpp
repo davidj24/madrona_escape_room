@@ -379,6 +379,37 @@ static Entity makeCube(Engine &ctx,
     return cube;
 }
 
+
+static Entity makeBasketballHoop(Engine &ctx,
+                                 float hoop_x,
+                                 float hoop_y,
+                                 float hoop_z = 3.0f)
+{
+    Entity hoop = ctx.makeRenderableEntity<PhysicsEntity>();
+    setupRigidBodyEntity(
+        ctx,
+        hoop,
+        Vector3 {
+            hoop_x,
+            hoop_y,
+            hoop_z,
+        },
+        Quat { 1, 0, 0, 0 },
+        SimObject::BasketballHoop,
+        EntityType::BasketballHoop,
+        ResponseType::Static,
+        Diag3x3 {
+            1.0f,
+            0.5f,
+            0.5f,
+        });
+    registerRigidBodyEntity(ctx, hoop, SimObject::BasketballHoop);
+
+    return hoop;
+}
+
+
+
 static void setupDoor(Engine &ctx,
                       Entity door,
                       Span<const Entity> buttons,
@@ -440,10 +471,13 @@ static CountT makeDoubleButtonRoom(Engine &ctx,
 
     Entity b = makeButton(ctx, b_x, b_y);
 
+    Entity hoop = makeBasketballHoop(ctx, 0.0f, y_min + consts::roomLength / 2.f);
+
     setupDoor(ctx, room.door, { a, b }, true);
 
     room.entities[0] = a;
     room.entities[1] = b;
+    room.entities[2] = hoop;
 
     return 2;
 }
@@ -603,6 +637,9 @@ static void makeRoom(Engine &ctx,
         room.entities[i] = Entity::none();
     }
 }
+
+
+
 
 static void generateLevel(Engine &ctx)
 {
