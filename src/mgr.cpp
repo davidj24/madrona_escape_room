@@ -238,6 +238,7 @@ static void loadRenderObjects(render::RenderManager &render_mgr)
         { math::Vector4{1.f, 1.f, 1.f, 0.0f}, 2, 0.5f, 1.0f,},
         { math::Vector4{0.800f, 0.106f, 0.005f, 1.0f}, -1, 0.8f, 0.4f,}, // Orange Ball (Index 8)
         { math::Vector4{0.0f, 0.0f, 0.0f, 1.0f},     -1, 0.8f, 0.2f,}, // Black Lines (Index 9)
+        { math::Vector4{1.f, 1.f, 1.f, 0.0f}, 3, 0.9f, 0.1f,}, // Court Texture (Index 10)
     });
 
     // Override materials
