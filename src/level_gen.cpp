@@ -379,6 +379,7 @@ static Entity makeCube(Engine &ctx,
     return cube;
 }
 
+// ========================================================= Basketball Stuff ========================================================
 
 static Entity makeBasketballHoop(Engine &ctx,
                                  float hoop_x,
@@ -436,6 +437,19 @@ static Entity makeBasketball(Engine &ctx,
 
     return ball;
 }
+
+
+
+static Entity makeCourt
+
+
+
+
+
+
+
+
+// ================================================== End of Basketball Stuff ========================================================
 
 
 
@@ -500,17 +514,12 @@ static CountT makeDoubleButtonRoom(Engine &ctx,
 
     Entity b = makeButton(ctx, b_x, b_y);
 
-    Entity hoop = makeBasketballHoop(ctx, 0.0f, y_min + consts::roomLength / 2.f);
-    Entity ball = makeBasketball(ctx, 0.0f, y_min + consts::roomLength / 2.f);
-
     setupDoor(ctx, room.door, { a, b }, true);
 
     room.entities[0] = a;
     room.entities[1] = b;
-    room.entities[2] = hoop;
-    room.entities[3] = ball;
 
-    return 3;
+    return 2;
 }
 
 // This room has 3 cubes blocking the exit door as well as two buttons.
@@ -677,11 +686,13 @@ static void generateLevel(Engine &ctx)
     LevelState &level = ctx.singleton<LevelState>();
 
     // For training simplicity, define a fixed sequence of levels.
-    makeRoom(ctx, level, 0, RoomType::DoubleButton);
-    makeRoom(ctx, level, 1, RoomType::CubeBlocking);
-    makeRoom(ctx, level, 2, RoomType::CubeButtons);
+    // makeRoom(ctx, level, 0, RoomType::DoubleButton);
+    // makeRoom(ctx, level, 1, RoomType::CubeBlocking);
+    // makeRoom(ctx, level, 2, RoomType::CubeButtons);
+    // makeBasketballHoop(ctx, 0.0f, consts::roomLength / 2.f);
+    // makeBasketball(ctx, 0.0f, consts::roomLength / 2.f);
 
-#if 0
+#if 1
     // An alternative implementation could randomly select the type for each
     // room rather than a fixed progression of challenge difficulty
     for (CountT i = 0; i < consts::numRooms; i++) {

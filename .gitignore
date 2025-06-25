@@ -7,3 +7,5 @@
 /train_src/madrona_escape_room_learn/__pycache__
 /.vscode
 madrona_venv/
+/train_and_show.sh
+training.log

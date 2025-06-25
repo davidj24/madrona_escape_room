@@ -225,10 +225,6 @@ static void loadRenderObjects(render::RenderManager &render_mgr)
         FATAL("Failed to load render assets: %s", import_err);
     }
 
-    // Add this debug line
-    printf("DEBUG: Basketball object loaded with %zu meshes.\n",
-        render_assets->objects[(CountT)SimObject::Basketball].meshes.size());
-
     auto materials = std::to_array<imp::SourceMaterial>({
         { render::rgb8ToFloat(191, 108, 10), -1, 0.8f, 0.2f },
         { math::Vector4{0.4f, 0.4f, 0.4f, 0.0f}, -1, 0.8f, 0.2f,},
