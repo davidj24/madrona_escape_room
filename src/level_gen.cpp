@@ -718,7 +718,7 @@ static void generateLevel(Engine &ctx)
     // makeRoom(ctx, level, 2, RoomType::CubeButtons);
     // makeBasketballHoop(ctx, 0.0f, consts::roomLength / 2.f);
     // makeBasketball(ctx, 0.0f, consts::roomLength / 2.f);
-    makeBasketballCourt(ctx, 0.0f, consts::roomLength / 2.f);   
+    // makeBasketballCourt(ctx, 0.0f, consts::roomLength / 2.f);   
 
 #if 1
     // An alternative implementation could randomly select the type for each
