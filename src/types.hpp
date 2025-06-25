@@ -157,6 +157,7 @@ enum class EntityType : uint32_t {
     Door,
     BasketballHoop,
     Basketball,
+    BasketballCourt,
     NumTypes,
 };
 
@@ -211,7 +212,7 @@ struct Ballstate
 
 
 
-// ======================================================== ECS Archetypes ========================================================
+// ======================================================== Archetypes ========================================================
 
 // There are 2 Agents in the environment trying to get to the destination
 struct Agent : public madrona::Archetype<
@@ -291,4 +292,12 @@ struct BasketballEntity : public madrona::Archetype<
     madrona::render::Renderable
 > {};
 
+struct BasketballCourtEntity : public madrona::Archetype<
+    RigidBody,
+    EntityType,
+    madrona::render::Renderable
+> {};
+
 }
+
+

@@ -48,6 +48,7 @@ void Sim::registerTypes(ECSRegistry &registry, const Config &cfg)
     registry.registerArchetype<ButtonEntity>();
     registry.registerArchetype<BasketballHoopEntity>();
     registry.registerArchetype<BasketballEntity>();
+    registry.registerArchetype<BasketballCourtEntity>();
 
     registry.exportSingleton<WorldReset>(
         (uint32_t)ExportID::Reset);

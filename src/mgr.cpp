@@ -209,6 +209,8 @@ static void loadRenderObjects(render::RenderManager &render_mgr)
         (std::filesystem::path(DATA_DIR) / "hoop.obj").string();
     render_asset_paths[(size_t)SimObject::Basketball] =
         (std::filesystem::path(DATA_DIR) / "basketball.obj").string();
+    render_asset_paths[(size_t)SimObject::BasketballCourt] =
+        (std::filesystem::path(DATA_DIR) / "Court.obj").string();
 
     std::array<const char *, (size_t)SimObject::NumObjects> render_asset_cstrs;
     for (size_t i = 0; i < render_asset_paths.size(); i++) {
@@ -250,6 +252,7 @@ static void loadRenderObjects(render::RenderManager &render_mgr)
     render_assets->objects[(CountT)SimObject::BasketballHoop].meshes[0].materialIDX = 7;
     render_assets->objects[(CountT)SimObject::Basketball].meshes[0].materialIDX = 8; // Orange Ball
     // render_assets->objects[(CountT)SimObject::Basketball].meshes[0].materialIDX = 9; // Black Lines
+    render_assets->objects[(CountT)SimObject::BasketballCourt].meshes[0].materialIDX = 9;
 
     imp::ImageImporter img_importer;
     Span<imp::SourceTexture> imported_textures = img_importer.importImages(
@@ -286,6 +289,8 @@ static void loadPhysicsObjects(PhysicsLoader &loader)
     asset_paths[(size_t)SimObject::BasketballHoop] =
         (std::filesystem::path(DATA_DIR) / "cube_collision.obj").string();
     asset_paths[(size_t)SimObject::Basketball] =
+        (std::filesystem::path(DATA_DIR) / "cube_collision.obj").string();
+    asset_paths[(size_t)SimObject::BasketballCourt] =
         (std::filesystem::path(DATA_DIR) / "cube_collision.obj").string();
 
     std::array<const char *, (size_t)SimObject::NumObjects - 1> asset_cstrs;
@@ -368,6 +373,11 @@ static void loadPhysicsObjects(PhysicsLoader &loader)
     setupHull(SimObject::Basketball, 0.5f, { // Mass > 0 for dynamic object
         .muS = 0.4f,
         .muD = 0.4f,
+    });
+
+    setupHull(SimObject::BasketballCourt, 0.f, {
+        .muS = 0.5f,
+        .muD = 0.5f,
     });
 
     SourceCollisionPrimitive plane_prim {

@@ -440,7 +440,34 @@ static Entity makeBasketball(Engine &ctx,
 
 
 
-static Entity makeCourt
+static Entity makeBasketballCourt(Engine &ctx,
+                            float court_x,
+                            float court_y,
+                            float court_z = 0.0f)
+{
+    Entity court = ctx.makeRenderableEntity<BasketballCourtEntity>();
+    setupRigidBodyEntity(
+        ctx,
+        court,
+        Vector3 {
+            court_x,
+            court_y,
+            court_z,
+        },
+        Quat::angleAxis(math::pi/2.f, Vector3{1, 0, 0}),
+        SimObject::BasketballCourt,
+        EntityType::BasketballCourt,
+        ResponseType::Static,
+        Diag3x3 {
+            1.f,
+            1.f,
+            1.f,
+        });
+    registerRigidBodyEntity(ctx, court, SimObject::BasketballCourt);
+
+    return court;
+}
+
 
 
 
@@ -691,6 +718,7 @@ static void generateLevel(Engine &ctx)
     // makeRoom(ctx, level, 2, RoomType::CubeButtons);
     // makeBasketballHoop(ctx, 0.0f, consts::roomLength / 2.f);
     // makeBasketball(ctx, 0.0f, consts::roomLength / 2.f);
+    makeBasketballCourt(ctx, 0.0f, consts::roomLength / 2.f);   
 
 #if 1
     // An alternative implementation could randomly select the type for each
