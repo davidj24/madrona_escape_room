@@ -426,7 +426,7 @@ static Entity makeBasketball(Engine &ctx,
         Quat::angleAxis(math::pi/2.f, Vector3{1, 0, 0}),
         SimObject::Basketball,
         EntityType::Basketball,
-        ResponseType::Static,
+        ResponseType::Dynamic,
         Diag3x3 {
             0.25f,
             0.25f,

@@ -225,6 +225,10 @@ static void loadRenderObjects(render::RenderManager &render_mgr)
         FATAL("Failed to load render assets: %s", import_err);
     }
 
+    // Add this debug line
+    printf("DEBUG: Basketball object loaded with %zu meshes.\n",
+        render_assets->objects[(CountT)SimObject::Basketball].meshes.size());
+
     auto materials = std::to_array<imp::SourceMaterial>({
         { render::rgb8ToFloat(191, 108, 10), -1, 0.8f, 0.2f },
         { math::Vector4{0.4f, 0.4f, 0.4f, 0.0f}, -1, 0.8f, 0.2f,},
@@ -234,6 +238,8 @@ static void loadRenderObjects(render::RenderManager &render_mgr)
         { render::rgb8ToFloat(230, 20, 20),   -1, 0.8f, 1.0f },
         { render::rgb8ToFloat(230, 230, 20),   -1, 0.8f, 1.0f },
         { math::Vector4{1.f, 1.f, 1.f, 0.0f}, 2, 0.5f, 1.0f,},
+        { math::Vector4{0.800f, 0.106f, 0.005f, 1.0f}, -1, 0.8f, 0.4f,}, // Orange Ball (Index 8)
+        { math::Vector4{0.0f, 0.0f, 0.0f, 1.0f},     -1, 0.8f, 0.2f,}, // Black Lines (Index 9)
     });
 
     // Override materials
@@ -246,6 +252,8 @@ static void loadRenderObjects(render::RenderManager &render_mgr)
     render_assets->objects[(CountT)SimObject::Button].meshes[0].materialIDX = 6;
     render_assets->objects[(CountT)SimObject::Plane].meshes[0].materialIDX = 4;
     render_assets->objects[(CountT)SimObject::BasketballHoop].meshes[0].materialIDX = 7;
+    render_assets->objects[(CountT)SimObject::Basketball].meshes[0].materialIDX = 8; // Orange Ball
+    // render_assets->objects[(CountT)SimObject::Basketball].meshes[0].materialIDX = 9; // Black Lines
 
     imp::ImageImporter img_importer;
     Span<imp::SourceTexture> imported_textures = img_importer.importImages(
@@ -359,6 +367,11 @@ static void loadPhysicsObjects(PhysicsLoader &loader)
     setupHull(SimObject::BasketballHoop, 0.f, {
         .muS = 0.5f,
         .muD = 0.5f,
+    });
+
+    setupHull(SimObject::Basketball, 0.5f, { // Mass > 0 for dynamic object
+        .muS = 0.4f,
+        .muD = 0.4f,
     });
 
     SourceCollisionPrimitive plane_prim {

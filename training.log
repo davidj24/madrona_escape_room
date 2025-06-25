@@ -1,0 +1,1294 @@
+Compiling GPU engine code:
+Initialization finished
+/home/lucina/Desktop/madrona/madrona_escape_room/train_src/madrona_escape_room_learn/amp.py:21: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = torch.cuda.amp.GradScaler()
+TrainConfig:
+  num_updates: 3500
+  steps_per_update: 40
+  num_bptt_chunks: 8
+  lr: 0.0001
+  gamma: 0.998
+  ppo:
+    num_mini_batches: 1
+    clip_coef: 0.2
+    value_loss_coef: 0.5
+    entropy_coef: 0.01
+    max_grad_norm: 0.5
+    num_epochs: 2
+    clip_value_loss: False
+    adaptive_entropy: True
+  gae_lambda: 0.95
+  normalize_advantages: True
+  normalize_values: True
+  value_normalizer_decay: 0.999
+  mixed_precision: True
+
+Update: 1
+    Loss:  2.943e-01, A: -3.591e-04, V:  6.182e-01, E: -1.442e+00
+
+    Rewards          => Avg:  1.299e-05, Min: -5.001e-03, Max:  7.214e-02
+    Values           => Avg:  0.000e+00, Min:  0.000e+00, Max:  0.000e+00
+    Advantages       => Avg: -9.262e-03, Min: -8.514e-02, Max:  3.179e-01
+    Bootstrap Values => Avg:  0.000e+00, Min:  0.000e+00, Max:  0.000e+00
+    Returns          => Avg: 8.434057235717773e-05, σ: 0.99951171875
+    Value Normalizer => Mean: -9.259e-03, σ: 4.604e-02
+
+    FPS: 464704, Update Time: 0.71, Avg FPS: 464704
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.629GB (Current)
+    Update Iter Timing   => CPU: 0.705
+      Collect Rollouts   => CPU: 0.481
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.237, GPU: 0.238
+        Simulator Step   => CPU: 0.241
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.000
+      Compute Advantages => CPU: 0.005
+      PPO                => CPU: 0.219
+        Gather Minibatch => CPU: 0.017, GPU: 0.017
+        AC Forward       => CPU: 0.025, GPU: 0.046
+        Optimize         => CPU: 0.130
+
+Update: 10
+    Loss:  3.704e-01, A:  2.322e-05, V:  7.695e-01, E: -1.437e+00
+
+    Rewards          => Avg: -3.853e-03, Min: -5.001e-03, Max:  6.293e-02
+    Values           => Avg: -2.581e-01, Min: -3.223e-01, Max: -1.602e-01
+    Advantages       => Avg:  7.166e-02, Min: -1.123e-01, Max:  3.982e-01
+    Bootstrap Values => Avg: -2.820e-01, Min: -3.108e-01, Max: -2.443e-01
+    Returns          => Avg: -0.451416015625, σ: 0.925537109375
+    Value Normalizer => Mean: -1.454e-01, σ: 9.317e-02
+
+    FPS: 669607, Update Time: 0.49, Avg FPS: 724704
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.464
+      Collect Rollouts   => CPU: 0.309
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.071, GPU: 0.072
+        Simulator Step   => CPU: 0.235
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.153
+        Gather Minibatch => CPU: 0.008, GPU: 0.009
+        AC Forward       => CPU: 0.008, GPU: 0.048
+        Optimize         => CPU: 0.085
+
+Update: 20
+    Loss:  4.976e-01, A:  1.903e-04, V:  1.023e+00, E: -1.423e+00
+
+    Rewards          => Avg: -3.839e-03, Min: -5.001e-03, Max:  6.250e-02
+    Values           => Avg: -4.338e-01, Min: -5.239e-01, Max: -2.856e-01
+    Advantages       => Avg:  1.510e-01, Min: -1.013e-01, Max:  5.742e-01
+    Bootstrap Values => Avg: -4.475e-01, Min: -4.919e-01, Max: -4.138e-01
+    Returns          => Avg: -0.2484130859375, σ: 0.919921875
+    Value Normalizer => Mean: -2.487e-01, σ: 1.388e-01
+
+    FPS: 667187, Update Time: 0.49, Avg FPS: 693353
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.480
+      Collect Rollouts   => CPU: 0.326
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.066, GPU: 0.067
+        Simulator Step   => CPU: 0.255
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.152
+        Gather Minibatch => CPU: 0.007, GPU: 0.008
+        AC Forward       => CPU: 0.007, GPU: 0.051
+        Optimize         => CPU: 0.086
+
+Update: 30
+    Loss:  5.601e-01, A:  1.600e-04, V:  1.148e+00, E: -1.401e+00
+
+    Rewards          => Avg: -3.885e-03, Min: -5.001e-03, Max:  6.769e-02
+    Values           => Avg: -5.332e-01, Min: -6.538e-01, Max: -3.533e-01
+    Advantages       => Avg:  1.942e-01, Min: -1.114e-01, Max:  6.489e-01
+    Bootstrap Values => Avg: -5.142e-01, Min: -5.586e-01, Max: -4.761e-01
+    Returns          => Avg: -0.121368408203125, σ: 0.937255859375
+    Value Normalizer => Mean: -3.192e-01, σ: 1.634e-01
+
+    FPS: 638765, Update Time: 0.51, Avg FPS: 675268
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.491
+      Collect Rollouts   => CPU: 0.336
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.064, GPU: 0.064
+        Simulator Step   => CPU: 0.268
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.153
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.007, GPU: 0.052
+        Optimize         => CPU: 0.088
+
+Update: 40
+    Loss:  6.461e-01, A: -3.537e-04, V:  1.320e+00, E: -1.378e+00
+
+    Rewards          => Avg: -3.967e-03, Min: -5.001e-03, Max:  6.732e-02
+    Values           => Avg: -6.318e-01, Min: -7.852e-01, Max: -3.660e-01
+    Advantages       => Avg:  2.390e-01, Min: -1.594e-01, Max:  7.568e-01
+    Bootstrap Values => Avg: -5.649e-01, Min: -6.270e-01, Max: -5.259e-01
+    Returns          => Avg: -0.09625244140625, σ: 0.97705078125
+    Value Normalizer => Mean: -3.755e-01, σ: 1.833e-01
+
+    FPS: 608636, Update Time: 0.54, Avg FPS: 661353
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.500
+      Collect Rollouts   => CPU: 0.346
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.063, GPU: 0.063
+        Simulator Step   => CPU: 0.279
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.153
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.006, GPU: 0.053
+        Optimize         => CPU: 0.088
+
+Update: 50
+    Loss:  6.511e-01, A: -3.534e-04, V:  1.330e+00, E: -1.358e+00
+
+    Rewards          => Avg: -3.944e-03, Min: -5.001e-03, Max:  6.683e-02
+    Values           => Avg: -6.899e-01, Min: -8.589e-01, Max: -3.110e-01
+    Advantages       => Avg:  2.654e-01, Min: -2.549e-01, Max:  8.379e-01
+    Bootstrap Values => Avg: -5.864e-01, Min: -6.763e-01, Max: -5.425e-01
+    Returns          => Avg: -0.004398345947265625, σ: 0.9951171875
+    Value Normalizer => Mean: -4.235e-01, σ: 2.011e-01
+
+    FPS: 605254, Update Time: 0.54, Avg FPS: 648726
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.510
+      Collect Rollouts   => CPU: 0.354
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.063, GPU: 0.062
+        Simulator Step   => CPU: 0.288
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.153
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.006, GPU: 0.053
+        Optimize         => CPU: 0.088
+
+Update: 60
+    Loss:  6.199e-01, A:  3.895e-04, V:  1.266e+00, E: -1.343e+00
+
+    Rewards          => Avg: -3.902e-03, Min: -5.001e-03, Max:  6.763e-02
+    Values           => Avg: -7.124e-01, Min: -9.634e-01, Max: -2.087e-01
+    Advantages       => Avg:  2.756e-01, Min: -2.949e-01, Max:  9.146e-01
+    Bootstrap Values => Avg: -5.845e-01, Min: -7.471e-01, Max: -5.342e-01
+    Returns          => Avg: 0.1192626953125, σ: 1.01318359375
+    Value Normalizer => Mean: -4.621e-01, σ: 2.149e-01
+
+    FPS: 583579, Update Time: 0.56, Avg FPS: 637623
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.519
+      Collect Rollouts   => CPU: 0.363
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.062, GPU: 0.062
+        Simulator Step   => CPU: 0.296
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.154
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.006, GPU: 0.053
+        Optimize         => CPU: 0.089
+
+Update: 70
+    Loss:  5.517e-01, A: -1.208e-04, V:  1.130e+00, E: -1.333e+00
+
+    Rewards          => Avg: -3.822e-03, Min: -5.001e-03, Max:  7.220e-02
+    Values           => Avg: -6.963e-01, Min: -1.009e+00, Max: -1.074e-01
+    Advantages       => Avg:  2.700e-01, Min: -3.357e-01, Max:  9.775e-01
+    Bootstrap Values => Avg: -5.640e-01, Min: -7.124e-01, Max: -4.985e-01
+    Returns          => Avg: 0.289306640625, σ: 1.0166015625
+    Value Normalizer => Mean: -4.913e-01, σ: 2.250e-01
+
+    FPS: 570427, Update Time: 0.57, Avg FPS: 628345
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.526
+      Collect Rollouts   => CPU: 0.370
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.062, GPU: 0.062
+        Simulator Step   => CPU: 0.304
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.154
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.006, GPU: 0.054
+        Optimize         => CPU: 0.089
+
+Update: 80
+    Loss:  4.354e-01, A:  1.826e-04, V:  8.970e-01, E: -1.326e+00
+
+    Rewards          => Avg: -3.746e-03, Min: -5.001e-03, Max:  6.482e-02
+    Values           => Avg: -6.270e-01, Min: -1.014e+00, Max:  5.566e-02
+    Advantages       => Avg:  2.405e-01, Min: -2.849e-01, Max:  9.351e-01
+    Bootstrap Values => Avg: -5.146e-01, Min: -6.729e-01, Max: -4.431e-01
+    Returns          => Avg: 0.532470703125, σ: 0.9775390625
+    Value Normalizer => Mean: -5.088e-01, σ: 2.308e-01
+
+    FPS: 561226, Update Time: 0.58, Avg FPS: 619764
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.534
+      Collect Rollouts   => CPU: 0.378
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.062, GPU: 0.062
+        Simulator Step   => CPU: 0.311
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.154
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.006, GPU: 0.054
+        Optimize         => CPU: 0.089
+
+Update: 90
+    Loss:  3.223e-01, A: -2.697e-04, V:  6.715e-01, E: -1.320e+00
+
+    Rewards          => Avg: -3.666e-03, Min: -5.001e-03, Max:  6.732e-02
+    Values           => Avg: -5.396e-01, Min: -9.097e-01, Max:  1.302e-01
+    Advantages       => Avg:  2.029e-01, Min: -2.769e-01, Max:  8.638e-01
+    Bootstrap Values => Avg: -4.453e-01, Min: -7.349e-01, Max: -3.606e-01
+    Returns          => Avg: 0.764892578125, σ: 0.91455078125
+    Value Normalizer => Mean: -5.146e-01, σ: 2.332e-01
+
+    FPS: 553541, Update Time: 0.59, Avg FPS: 611835
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.541
+      Collect Rollouts   => CPU: 0.385
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.062, GPU: 0.062
+        Simulator Step   => CPU: 0.318
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.154
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.006, GPU: 0.054
+        Optimize         => CPU: 0.089
+
+Update: 100
+    Loss:  2.494e-01, A:  2.942e-04, V:  5.244e-01, E: -1.313e+00
+
+    Rewards          => Avg: -3.555e-03, Min: -5.001e-03, Max:  7.330e-02
+    Values           => Avg: -4.753e-01, Min: -8.687e-01, Max:  1.976e-01
+    Advantages       => Avg:  1.752e-01, Min: -4.077e-01, Max:  7.891e-01
+    Bootstrap Values => Avg: -3.762e-01, Min: -6.133e-01, Max: -2.966e-01
+    Returns          => Avg: 0.906982421875, σ: 0.859619140625
+    Value Normalizer => Mean: -5.121e-01, σ: 2.344e-01
+
+    FPS: 542530, Update Time: 0.60, Avg FPS: 604782
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.547
+      Collect Rollouts   => CPU: 0.391
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.062, GPU: 0.062
+        Simulator Step   => CPU: 0.325
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.154
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.006, GPU: 0.054
+        Optimize         => CPU: 0.089
+
+Update: 110
+    Loss:  2.068e-01, A: -1.640e-04, V:  4.402e-01, E: -1.308e+00
+
+    Rewards          => Avg: -3.498e-03, Min: -5.001e-03, Max:  7.001e-02
+    Values           => Avg: -4.338e-01, Min: -7.988e-01, Max:  2.462e-01
+    Advantages       => Avg:  1.569e-01, Min: -2.988e-01, Max:  8.027e-01
+    Bootstrap Values => Avg: -3.254e-01, Min: -5.405e-01, Max: -2.400e-01
+    Returns          => Avg: 0.97119140625, σ: 0.824951171875
+    Value Normalizer => Mean: -5.054e-01, σ: 2.359e-01
+
+    FPS: 638903, Update Time: 0.51, Avg FPS: 604604
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.547
+      Collect Rollouts   => CPU: 0.393
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.061
+        Simulator Step   => CPU: 0.327
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.153
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.006, GPU: 0.053
+        Optimize         => CPU: 0.089
+
+Update: 120
+    Loss:  1.666e-01, A: -1.621e-04, V:  3.597e-01, E: -1.307e+00
+
+    Rewards          => Avg: -3.418e-03, Min: -5.001e-03, Max:  6.543e-02
+    Values           => Avg: -3.909e-01, Min: -7.480e-01, Max:  2.903e-01
+    Advantages       => Avg:  1.384e-01, Min: -3.123e-01, Max:  7.700e-01
+    Bootstrap Values => Avg: -2.734e-01, Min: -4.619e-01, Max: -1.804e-01
+    Returns          => Avg: 1.029296875, σ: 0.791259765625
+    Value Normalizer => Mean: -4.968e-01, σ: 2.380e-01
+
+    FPS: 630323, Update Time: 0.52, Avg FPS: 606617
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.545
+      Collect Rollouts   => CPU: 0.392
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.060, GPU: 0.059
+        Simulator Step   => CPU: 0.329
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 130
+    Loss:  1.306e-01, A:  1.503e-04, V:  2.871e-01, E: -1.310e+00
+
+    Rewards          => Avg: -3.355e-03, Min: -5.001e-03, Max:  6.799e-02
+    Values           => Avg: -3.477e-01, Min: -6.919e-01, Max:  3.252e-01
+    Advantages       => Avg:  1.203e-01, Min: -3.076e-01, Max:  7.646e-01
+    Bootstrap Values => Avg: -2.131e-01, Min: -4.343e-01, Max: -1.122e-01
+    Returns          => Avg: 1.07861328125, σ: 0.747314453125
+    Value Normalizer => Mean: -4.862e-01, σ: 2.407e-01
+
+    FPS: 538154, Update Time: 0.61, Avg FPS: 603379
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.548
+      Collect Rollouts   => CPU: 0.396
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.060, GPU: 0.060
+        Simulator Step   => CPU: 0.332
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 140
+    Loss:  9.511e-02, A: -1.765e-04, V:  2.167e-01, E: -1.309e+00
+
+    Rewards          => Avg: -3.307e-03, Min: -5.001e-03, Max:  6.952e-02
+    Values           => Avg: -3.025e-01, Min: -6.343e-01, Max:  3.181e-01
+    Advantages       => Avg:  1.008e-01, Min: -3.040e-01, Max:  8.335e-01
+    Bootstrap Values => Avg: -1.543e-01, Min: -4.124e-01, Max: -5.447e-02
+    Returns          => Avg: 1.1181640625, σ: 0.6904296875
+    Value Normalizer => Mean: -4.737e-01, σ: 2.440e-01
+
+    FPS: 515767, Update Time: 0.64, Avg FPS: 597095
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.555
+      Collect Rollouts   => CPU: 0.402
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.337
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 150
+    Loss:  6.362e-02, A:  1.697e-04, V:  1.530e-01, E: -1.304e+00
+
+    Rewards          => Avg: -3.326e-03, Min: -5.001e-03, Max:  6.757e-02
+    Values           => Avg: -2.522e-01, Min: -5.698e-01, Max:  3.455e-01
+    Advantages       => Avg:  7.812e-02, Min: -3.159e-01, Max:  6.802e-01
+    Bootstrap Values => Avg: -8.331e-02, Min: -3.586e-01, Max:  2.354e-02
+    Returns          => Avg: 1.154296875, σ: 0.627685546875
+    Value Normalizer => Mean: -4.594e-01, σ: 2.479e-01
+
+    FPS: 510823, Update Time: 0.64, Avg FPS: 591120
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.561
+      Collect Rollouts   => CPU: 0.408
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.343
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 160
+    Loss:  3.879e-02, A:  1.319e-04, V:  1.034e-01, E: -1.303e+00
+
+    Rewards          => Avg: -3.326e-03, Min: -5.001e-03, Max:  8.081e-02
+    Values           => Avg: -2.003e-01, Min: -5.156e-01, Max:  3.708e-01
+    Advantages       => Avg:  5.511e-02, Min: -3.428e-01, Max:  7.124e-01
+    Bootstrap Values => Avg: -1.144e-02, Min: -2.341e-01, Max:  1.162e-01
+    Returns          => Avg: 1.18505859375, σ: 0.56494140625
+    Value Normalizer => Mean: -4.436e-01, σ: 2.524e-01
+
+    FPS: 502592, Update Time: 0.65, Avg FPS: 585537
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.566
+      Collect Rollouts   => CPU: 0.413
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.349
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.088
+
+Update: 170
+    Loss:  2.154e-02, A:  1.160e-04, V:  6.903e-02, E: -1.309e+00
+
+    Rewards          => Avg: -3.424e-03, Min: -5.001e-03, Max:  6.909e-02
+    Values           => Avg: -1.630e-01, Min: -4.546e-01, Max:  3.760e-01
+    Advantages       => Avg:  3.720e-02, Min: -3.584e-01, Max:  6.504e-01
+    Bootstrap Values => Avg:  5.585e-02, Min: -2.546e-01, Max:  1.830e-01
+    Returns          => Avg: 1.17236328125, σ: 0.4964599609375
+    Value Normalizer => Mean: -4.268e-01, σ: 2.574e-01
+
+    FPS: 496346, Update Time: 0.66, Avg FPS: 580264
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.572
+      Collect Rollouts   => CPU: 0.419
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.354
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.088
+
+Update: 180
+    Loss:  8.033e-03, A:  5.484e-05, V:  4.207e-02, E: -1.306e+00
+
+    Rewards          => Avg: -3.307e-03, Min: -5.001e-03, Max:  6.610e-02
+    Values           => Avg: -1.172e-01, Min: -3.831e-01, Max:  3.613e-01
+    Advantages       => Avg:  1.767e-02, Min: -3.572e-01, Max:  5.908e-01
+    Bootstrap Values => Avg:  1.241e-01, Min: -1.418e-01, Max:  2.505e-01
+    Returns          => Avg: 1.18212890625, σ: 0.429443359375
+    Value Normalizer => Mean: -4.092e-01, σ: 2.625e-01
+
+    FPS: 491835, Update Time: 0.67, Avg FPS: 575192
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.577
+      Collect Rollouts   => CPU: 0.424
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.359
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.088
+
+Update: 190
+    Loss:  2.653e-03, A: -3.084e-05, V:  3.137e-02, E: -1.300e+00
+
+    Rewards          => Avg: -3.389e-03, Min: -5.001e-03, Max:  7.098e-02
+    Values           => Avg: -1.046e-01, Min: -3.599e-01, Max:  3.569e-01
+    Advantages       => Avg:  1.141e-02, Min: -3.562e-01, Max:  5.605e-01
+    Bootstrap Values => Avg:  1.707e-01, Min: -9.906e-02, Max:  3.091e-01
+    Returns          => Avg: 1.123046875, σ: 0.3807373046875
+    Value Normalizer => Mean: -3.921e-01, σ: 2.666e-01
+
+    FPS: 486006, Update Time: 0.67, Avg FPS: 570401
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.583
+      Collect Rollouts   => CPU: 0.429
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.364
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.152
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.088
+
+Update: 200
+    Loss:  4.430e-05, A: -3.145e-05, V:  2.614e-02, E: -1.299e+00
+
+    Rewards          => Avg: -3.428e-03, Min: -5.001e-03, Max:  6.830e-02
+    Values           => Avg: -1.011e-01, Min: -3.281e-01, Max:  3.716e-01
+    Advantages       => Avg:  9.720e-03, Min: -3.599e-01, Max:  5.552e-01
+    Bootstrap Values => Avg:  2.061e-01, Min: -8.960e-02, Max:  3.423e-01
+    Returns          => Avg: 1.056640625, σ: 0.3546142578125
+    Value Normalizer => Mean: -3.760e-01, σ: 2.698e-01
+
+    FPS: 482640, Update Time: 0.68, Avg FPS: 565913
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.588
+      Collect Rollouts   => CPU: 0.434
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.368
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.152
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.088
+
+Update: 210
+    Loss: -8.738e-04, A: -5.935e-05, V:  2.436e-02, E: -1.299e+00
+
+    Rewards          => Avg: -3.355e-03, Min: -5.001e-03, Max:  6.696e-02
+    Values           => Avg: -9.729e-02, Min: -3.291e-01, Max:  3.513e-01
+    Advantages       => Avg:  8.949e-03, Min: -3.333e-01, Max:  5.308e-01
+    Bootstrap Values => Avg:  2.317e-01, Min: -8.325e-02, Max:  3.757e-01
+    Returns          => Avg: 1.00244140625, σ: 0.34033203125
+    Value Normalizer => Mean: -3.608e-01, σ: 2.724e-01
+
+    FPS: 565087, Update Time: 0.58, Avg FPS: 563309
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.590
+      Collect Rollouts   => CPU: 0.437
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.372
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.088
+
+Update: 220
+    Loss: -4.023e-04, A:  7.626e-06, V:  2.496e-02, E: -1.289e+00
+
+    Rewards          => Avg: -3.183e-03, Min: -5.001e-03, Max:  7.050e-02
+    Values           => Avg: -9.070e-02, Min: -3.271e-01, Max:  3.325e-01
+    Advantages       => Avg:  7.736e-03, Min: -3.125e-01, Max:  5.581e-01
+    Bootstrap Values => Avg:  2.656e-01, Min: -5.267e-02, Max:  3.926e-01
+    Returns          => Avg: 0.9619140625, σ: 0.337646484375
+    Value Normalizer => Mean: -3.465e-01, σ: 2.744e-01
+
+    FPS: 559386, Update Time: 0.59, Avg FPS: 563161
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.590
+      Collect Rollouts   => CPU: 0.438
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.060, GPU: 0.059
+        Simulator Step   => CPU: 0.374
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 230
+    Loss:  5.366e-04, A: -5.596e-05, V:  2.660e-02, E: -1.271e+00
+
+    Rewards          => Avg: -3.054e-03, Min: -5.001e-03, Max:  7.379e-02
+    Values           => Avg: -1.014e-01, Min: -3.689e-01, Max:  3.284e-01
+    Advantages       => Avg:  1.362e-02, Min: -2.820e-01, Max:  5.225e-01
+    Bootstrap Values => Avg:  3.042e-01, Min: -1.508e-01, Max:  4.380e-01
+    Returns          => Avg: 0.8857421875, σ: 0.3291015625
+    Value Normalizer => Mean: -3.323e-01, σ: 2.764e-01
+
+    FPS: 519297, Update Time: 0.63, Avg FPS: 561468
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.592
+      Collect Rollouts   => CPU: 0.440
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.060, GPU: 0.059
+        Simulator Step   => CPU: 0.376
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 240
+    Loss:  3.229e-04, A: -4.104e-05, V:  2.583e-02, E: -1.255e+00
+
+    Rewards          => Avg: -2.991e-03, Min: -5.001e-03, Max:  7.190e-02
+    Values           => Avg: -9.814e-02, Min: -3.401e-01, Max:  3.391e-01
+    Advantages       => Avg:  1.259e-02, Min: -3.179e-01, Max:  5.068e-01
+    Bootstrap Values => Avg:  3.384e-01, Min: -7.697e-02, Max:  4.688e-01
+    Returns          => Avg: 0.84228515625, σ: 0.334716796875
+    Value Normalizer => Mean: -3.192e-01, σ: 2.778e-01
+
+    FPS: 458619, Update Time: 0.71, Avg FPS: 557376
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.597
+      Collect Rollouts   => CPU: 0.445
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.060, GPU: 0.059
+        Simulator Step   => CPU: 0.380
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 250
+    Loss: -1.893e-05, A: -5.296e-05, V:  2.511e-02, E: -1.252e+00
+
+    Rewards          => Avg: -3.119e-03, Min: -5.001e-03, Max:  7.080e-02
+    Values           => Avg: -1.032e-01, Min: -3.313e-01, Max:  3.384e-01
+    Advantages       => Avg:  1.349e-02, Min: -3.174e-01, Max:  5.156e-01
+    Bootstrap Values => Avg:  4.133e-01, Min:  1.198e-01, Max:  5.586e-01
+    Returns          => Avg: 0.775390625, σ: 0.31787109375
+    Value Normalizer => Mean: -3.062e-01, σ: 2.794e-01
+
+    FPS: 453927, Update Time: 0.72, Avg FPS: 553315
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.601
+      Collect Rollouts   => CPU: 0.449
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.060, GPU: 0.059
+        Simulator Step   => CPU: 0.385
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 260
+    Loss:  2.537e-05, A: -3.573e-05, V:  2.494e-02, E: -1.241e+00
+
+    Rewards          => Avg: -3.080e-03, Min: -5.001e-03, Max:  6.653e-02
+    Values           => Avg: -1.014e-01, Min: -3.396e-01, Max:  3.269e-01
+    Advantages       => Avg:  1.295e-02, Min: -3.086e-01, Max:  5.034e-01
+    Bootstrap Values => Avg:  4.504e-01, Min:  1.235e-01, Max:  5.742e-01
+    Returns          => Avg: 0.73095703125, σ: 0.314697265625
+    Value Normalizer => Mean: -2.937e-01, σ: 2.809e-01
+
+    FPS: 448606, Update Time: 0.73, Avg FPS: 549420
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.606
+      Collect Rollouts   => CPU: 0.454
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.389
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 270
+    Loss:  1.925e-04, A:  6.943e-06, V:  2.496e-02, E: -1.229e+00
+
+    Rewards          => Avg: -3.256e-03, Min: -5.001e-03, Max:  7.507e-02
+    Values           => Avg: -1.030e-01, Min: -3.455e-01, Max:  3.555e-01
+    Advantages       => Avg:  1.236e-02, Min: -3.806e-01, Max:  5.259e-01
+    Bootstrap Values => Avg:  4.968e-01, Min:  2.196e-01, Max:  6.089e-01
+    Returns          => Avg: 0.67919921875, σ: 0.3199462890625
+    Value Normalizer => Mean: -2.821e-01, σ: 2.820e-01
+
+    FPS: 442742, Update Time: 0.74, Avg FPS: 545599
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.611
+      Collect Rollouts   => CPU: 0.459
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.394
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 280
+    Loss: -7.284e-04, A:  1.437e-05, V:  2.295e-02, E: -1.222e+00
+
+    Rewards          => Avg: -3.428e-03, Min: -5.001e-03, Max:  6.677e-02
+    Values           => Avg: -9.460e-02, Min: -3.230e-01, Max:  3.472e-01
+    Advantages       => Avg:  6.767e-03, Min: -3.354e-01, Max:  5.151e-01
+    Bootstrap Values => Avg:  5.322e-01, Min:  3.171e-01, Max:  6.479e-01
+    Returns          => Avg: 0.6474609375, σ: 0.2947998046875
+    Value Normalizer => Mean: -2.709e-01, σ: 2.831e-01
+
+    FPS: 434536, Update Time: 0.75, Avg FPS: 541885
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.616
+      Collect Rollouts   => CPU: 0.463
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.398
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 290
+    Loss: -5.599e-04, A:  5.810e-05, V:  2.297e-02, E: -1.210e+00
+
+    Rewards          => Avg: -3.481e-03, Min: -5.001e-03, Max:  7.050e-02
+    Values           => Avg: -9.814e-02, Min: -3.176e-01, Max:  3.501e-01
+    Advantages       => Avg:  8.026e-03, Min: -3.367e-01, Max:  5.459e-01
+    Bootstrap Values => Avg:  5.605e-01, Min:  3.406e-01, Max:  6.636e-01
+    Returns          => Avg: 0.601806640625, σ: 0.3040771484375
+    Value Normalizer => Mean: -2.608e-01, σ: 2.838e-01
+
+    FPS: 432731, Update Time: 0.76, Avg FPS: 538289
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.620
+      Collect Rollouts   => CPU: 0.468
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.403
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 300
+    Loss: -1.148e-03, A:  7.421e-05, V:  2.176e-02, E: -1.210e+00
+
+    Rewards          => Avg: -3.675e-03, Min: -5.001e-03, Max:  6.689e-02
+    Values           => Avg: -9.857e-02, Min: -3.149e-01, Max:  3.777e-01
+    Advantages       => Avg:  6.443e-03, Min: -3.389e-01, Max:  5.557e-01
+    Bootstrap Values => Avg:  5.957e-01, Min:  2.563e-01, Max:  7.129e-01
+    Returns          => Avg: 0.561279296875, σ: 0.2867431640625
+    Value Normalizer => Mean: -2.515e-01, σ: 2.842e-01
+
+    FPS: 431542, Update Time: 0.76, Avg FPS: 534814
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.625
+      Collect Rollouts   => CPU: 0.472
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.407
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.088
+
+Update: 310
+    Loss: -9.243e-04, A: -3.411e-05, V:  2.217e-02, E: -1.197e+00
+
+    Rewards          => Avg: -3.660e-03, Min: -5.001e-03, Max:  7.617e-02
+    Values           => Avg: -8.832e-02, Min: -3.279e-01, Max:  4.070e-01
+    Advantages       => Avg:  2.529e-03, Min: -3.792e-01, Max:  5.815e-01
+    Bootstrap Values => Avg:  6.128e-01, Min:  4.165e-01, Max:  7.197e-01
+    Returns          => Avg: 0.55322265625, σ: 0.292724609375
+    Value Normalizer => Mean: -2.430e-01, σ: 2.844e-01
+
+    FPS: 504724, Update Time: 0.65, Avg FPS: 534047
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.625
+      Collect Rollouts   => CPU: 0.473
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.060, GPU: 0.059
+        Simulator Step   => CPU: 0.409
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 320
+    Loss: -1.313e-03, A:  4.684e-05, V:  2.105e-02, E: -1.189e+00
+
+    Rewards          => Avg: -3.771e-03, Min: -5.001e-03, Max:  7.440e-02
+    Values           => Avg: -8.618e-02, Min: -3.154e-01, Max:  4.529e-01
+    Advantages       => Avg:  4.616e-04, Min: -4.407e-01, Max:  6.084e-01
+    Bootstrap Values => Avg:  6.172e-01, Min:  2.979e-01, Max:  7.183e-01
+    Returns          => Avg: 0.526611328125, σ: 0.2855224609375
+    Value Normalizer => Mean: -2.353e-01, σ: 2.843e-01
+
+    FPS: 430512, Update Time: 0.76, Avg FPS: 532543
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.627
+      Collect Rollouts   => CPU: 0.475
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.060, GPU: 0.059
+        Simulator Step   => CPU: 0.411
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 330
+    Loss: -1.122e-03, A: -3.000e-05, V:  2.151e-02, E: -1.185e+00
+
+    Rewards          => Avg: -3.752e-03, Min: -5.001e-03, Max:  7.123e-02
+    Values           => Avg: -9.448e-02, Min: -3.120e-01, Max:  4.558e-01
+    Advantages       => Avg:  4.425e-03, Min: -3.740e-01, Max:  6.416e-01
+    Bootstrap Values => Avg:  6.167e-01, Min:  4.375e-01, Max:  7.168e-01
+    Returns          => Avg: 0.4881591796875, σ: 0.2965087890625
+    Value Normalizer => Mean: -2.285e-01, σ: 2.838e-01
+
+    FPS: 416462, Update Time: 0.79, Avg FPS: 529322
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.631
+      Collect Rollouts   => CPU: 0.479
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.060, GPU: 0.059
+        Simulator Step   => CPU: 0.415
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 340
+    Loss: -3.023e-04, A: -5.591e-05, V:  2.323e-02, E: -1.186e+00
+
+    Rewards          => Avg: -3.674e-03, Min: -5.001e-03, Max:  7.013e-02
+    Values           => Avg: -9.448e-02, Min: -3.125e-01, Max:  4.634e-01
+    Advantages       => Avg:  5.814e-03, Min: -3.796e-01, Max:  5.693e-01
+    Bootstrap Values => Avg:  6.294e-01, Min:  4.346e-01, Max:  7.422e-01
+    Returns          => Avg: 0.4727783203125, σ: 0.3155517578125
+    Value Normalizer => Mean: -2.224e-01, σ: 2.832e-01
+
+    FPS: 413816, Update Time: 0.79, Avg FPS: 526088
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.636
+      Collect Rollouts   => CPU: 0.484
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.419
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 350
+    Loss: -4.058e-04, A: -2.547e-05, V:  2.287e-02, E: -1.181e+00
+
+    Rewards          => Avg: -3.759e-03, Min: -5.001e-03, Max:  6.482e-02
+    Values           => Avg: -1.002e-01, Min: -3.271e-01, Max:  4.778e-01
+    Advantages       => Avg:  7.591e-03, Min: -4.194e-01, Max:  5.586e-01
+    Bootstrap Values => Avg:  6.328e-01, Min:  4.126e-01, Max:  7.446e-01
+    Returns          => Avg: 0.441162109375, σ: 0.31982421875
+    Value Normalizer => Mean: -2.170e-01, σ: 2.824e-01
+
+    FPS: 408000, Update Time: 0.80, Avg FPS: 522920
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.640
+      Collect Rollouts   => CPU: 0.488
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.423
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 360
+    Loss: -7.855e-04, A:  5.367e-05, V:  2.192e-02, E: -1.180e+00
+
+    Rewards          => Avg: -3.733e-03, Min: -5.001e-03, Max:  8.252e-02
+    Values           => Avg: -8.008e-02, Min: -3.215e-01, Max:  4.883e-01
+    Advantages       => Avg: -8.659e-04, Min: -4.282e-01, Max:  5.938e-01
+    Bootstrap Values => Avg:  6.162e-01, Min:  4.526e-01, Max:  7.305e-01
+    Returns          => Avg: 0.4656982421875, σ: 0.3204345703125
+    Value Normalizer => Mean: -2.120e-01, σ: 2.815e-01
+
+    FPS: 382547, Update Time: 0.86, Avg FPS: 519422
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.645
+      Collect Rollouts   => CPU: 0.493
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.428
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 370
+    Loss: -1.021e-03, A: -1.939e-05, V:  2.168e-02, E: -1.184e+00
+
+    Rewards          => Avg: -3.752e-03, Min: -5.001e-03, Max:  6.824e-02
+    Values           => Avg: -6.915e-02, Min: -2.964e-01, Max:  4.949e-01
+    Advantages       => Avg: -5.474e-03, Min: -4.377e-01, Max:  5.259e-01
+    Bootstrap Values => Avg:  6.104e-01, Min:  4.482e-01, Max:  7.163e-01
+    Returns          => Avg: 0.4732666015625, σ: 0.319580078125
+    Value Normalizer => Mean: -2.075e-01, σ: 2.808e-01
+
+    FPS: 400395, Update Time: 0.82, Avg FPS: 516356
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.650
+      Collect Rollouts   => CPU: 0.497
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.432
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 380
+    Loss: -5.284e-04, A:  3.461e-05, V:  2.265e-02, E: -1.189e+00
+
+    Rewards          => Avg: -3.765e-03, Min: -5.001e-03, Max:  7.391e-02
+    Values           => Avg: -9.143e-02, Min: -3.340e-01, Max:  5.293e-01
+    Advantages       => Avg:  4.253e-03, Min: -4.641e-01, Max:  5.747e-01
+    Bootstrap Values => Avg:  6.646e-01, Min:  4.524e-01, Max:  7.842e-01
+    Returns          => Avg: 0.415771484375, σ: 0.3330078125
+    Value Normalizer => Mean: -2.034e-01, σ: 2.799e-01
+
+    FPS: 403245, Update Time: 0.81, Avg FPS: 513425
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.654
+      Collect Rollouts   => CPU: 0.501
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.436
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.088
+
+Update: 390
+    Loss: -5.462e-05, A:  1.810e-05, V:  2.358e-02, E: -1.186e+00
+
+    Rewards          => Avg: -3.679e-03, Min: -5.001e-03, Max:  6.909e-02
+    Values           => Avg: -8.801e-02, Min: -3.333e-01, Max:  5.444e-01
+    Advantages       => Avg:  3.782e-03, Min: -4.250e-01, Max:  6.216e-01
+    Bootstrap Values => Avg:  6.211e-01, Min:  4.285e-01, Max:  7.227e-01
+    Returns          => Avg: 0.4139404296875, σ: 0.3511962890625
+    Value Normalizer => Mean: -1.996e-01, σ: 2.789e-01
+
+    FPS: 470599, Update Time: 0.70, Avg FPS: 511622
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.656
+      Collect Rollouts   => CPU: 0.504
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.439
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 400
+    Loss: -8.083e-04, A:  3.129e-06, V:  2.233e-02, E: -1.198e+00
+
+    Rewards          => Avg: -3.706e-03, Min: -5.001e-03, Max:  6.775e-02
+    Values           => Avg: -6.445e-02, Min: -3.162e-01, Max:  5.088e-01
+    Advantages       => Avg: -6.783e-03, Min: -4.766e-01, Max:  5.674e-01
+    Bootstrap Values => Avg:  6.250e-01, Min:  4.795e-01, Max:  7.319e-01
+    Returns          => Avg: 0.4482421875, σ: 0.3385009765625
+    Value Normalizer => Mean: -1.958e-01, σ: 2.782e-01
+
+    FPS: 452583, Update Time: 0.72, Avg FPS: 510708
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.657
+      Collect Rollouts   => CPU: 0.505
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.060, GPU: 0.059
+        Simulator Step   => CPU: 0.441
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 410
+    Loss: -2.518e-04, A:  3.418e-05, V:  2.339e-02, E: -1.198e+00
+
+    Rewards          => Avg: -3.632e-03, Min: -5.001e-03, Max:  7.831e-02
+    Values           => Avg: -7.080e-02, Min: -3.442e-01, Max:  5.405e-01
+    Advantages       => Avg: -2.953e-03, Min: -4.556e-01, Max:  6.104e-01
+    Bootstrap Values => Avg:  6.694e-01, Min:  4.685e-01, Max:  7.764e-01
+    Returns          => Avg: 0.4285888671875, σ: 0.3553466796875
+    Value Normalizer => Mean: -1.927e-01, σ: 2.776e-01
+
+    FPS: 393925, Update Time: 0.83, Avg FPS: 508193
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.661
+      Collect Rollouts   => CPU: 0.509
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.444
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 420
+    Loss:  9.422e-04, A: -3.072e-05, V:  2.608e-02, E: -1.207e+00
+
+    Rewards          => Avg: -3.620e-03, Min: -5.001e-03, Max:  6.885e-02
+    Values           => Avg: -1.021e-01, Min: -3.677e-01, Max:  5.303e-01
+    Advantages       => Avg:  1.156e-02, Min: -4.504e-01, Max:  6.050e-01
+    Bootstrap Values => Avg:  7.515e-01, Min:  5.850e-01, Max:  8.535e-01
+    Returns          => Avg: 0.3597412109375, σ: 0.3846435546875
+    Value Normalizer => Mean: -1.900e-01, σ: 2.767e-01
+
+    FPS: 391974, Update Time: 0.84, Avg FPS: 505518
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.665
+      Collect Rollouts   => CPU: 0.513
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.448
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 430
+    Loss: -7.832e-04, A: -5.163e-05, V:  2.278e-02, E: -1.212e+00
+
+    Rewards          => Avg: -3.731e-03, Min: -5.001e-03, Max:  7.275e-02
+    Values           => Avg: -6.836e-02, Min: -3.076e-01, Max:  5.767e-01
+    Advantages       => Avg: -5.184e-03, Min: -4.915e-01, Max:  6.270e-01
+    Bootstrap Values => Avg:  6.768e-01, Min:  5.117e-01, Max:  7.666e-01
+    Returns          => Avg: 0.411865234375, σ: 0.364013671875
+    Value Normalizer => Mean: -1.871e-01, σ: 2.760e-01
+
+    FPS: 392126, Update Time: 0.84, Avg FPS: 502960
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.669
+      Collect Rollouts   => CPU: 0.517
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.452
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 440
+    Loss: -2.096e-03, A: -4.736e-05, V:  2.025e-02, E: -1.217e+00
+
+    Rewards          => Avg: -3.664e-03, Min: -5.001e-03, Max:  7.239e-02
+    Values           => Avg: -4.541e-02, Min: -3.123e-01, Max:  5.308e-01
+    Advantages       => Avg: -1.444e-02, Min: -4.473e-01, Max:  6.978e-01
+    Bootstrap Values => Avg:  5.620e-01, Min:  3.862e-01, Max:  6.880e-01
+    Returns          => Avg: 0.4503173828125, σ: 0.3076171875
+    Value Normalizer => Mean: -1.840e-01, σ: 2.759e-01
+
+    FPS: 392982, Update Time: 0.83, Avg FPS: 500459
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.672
+      Collect Rollouts   => CPU: 0.520
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.455
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 450
+    Loss: -7.734e-04, A: -1.682e-06, V:  2.310e-02, E: -1.232e+00
+
+    Rewards          => Avg: -3.849e-03, Min: -5.001e-03, Max:  6.952e-02
+    Values           => Avg: -1.158e-01, Min: -3.560e-01, Max:  5.146e-01
+    Advantages       => Avg:  1.539e-02, Min: -4.749e-01, Max:  6.260e-01
+    Bootstrap Values => Avg:  6.855e-01, Min:  4.927e-01, Max:  8.037e-01
+    Returns          => Avg: 0.29638671875, σ: 0.3642578125
+    Value Normalizer => Mean: -1.819e-01, σ: 2.752e-01
+
+    FPS: 386823, Update Time: 0.85, Avg FPS: 497965
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.676
+      Collect Rollouts   => CPU: 0.524
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.459
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 460
+    Loss: -3.199e-04, A:  3.032e-05, V:  2.349e-02, E: -1.210e+00
+
+    Rewards          => Avg: -3.410e-03, Min: -5.001e-03, Max:  7.037e-02
+    Values           => Avg: -6.165e-02, Min: -2.949e-01, Max:  5.254e-01
+    Advantages       => Avg: -4.925e-03, Min: -4.653e-01, Max:  5.483e-01
+    Bootstrap Values => Avg:  6.724e-01, Min:  5.278e-01, Max:  7.739e-01
+    Returns          => Avg: 0.41015625, σ: 0.3856201171875
+    Value Normalizer => Mean: -1.791e-01, σ: 2.745e-01
+
+    FPS: 380246, Update Time: 0.86, Avg FPS: 495537
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.680
+      Collect Rollouts   => CPU: 0.528
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.462
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.151
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 470
+    Loss:  5.777e-04, A:  5.444e-05, V:  2.551e-02, E: -1.223e+00
+
+    Rewards          => Avg: -3.448e-03, Min: -5.001e-03, Max:  1.074e-01
+    Values           => Avg: -5.484e-02, Min: -3.169e-01, Max:  5.581e-01
+    Advantages       => Avg: -7.523e-03, Min: -5.234e-01, Max:  5.679e-01
+    Bootstrap Values => Avg:  7.153e-01, Min:  5.391e-01, Max:  8.081e-01
+    Returns          => Avg: 0.4171142578125, σ: 0.3858642578125
+    Value Normalizer => Mean: -1.768e-01, σ: 2.744e-01
+
+    FPS: 453859, Update Time: 0.72, Avg FPS: 493869
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.682
+      Collect Rollouts   => CPU: 0.530
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.060
+        Simulator Step   => CPU: 0.465
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 480
+    Loss:  2.624e-03, A: -1.421e-05, V:  2.938e-02, E: -1.205e+00
+
+    Rewards          => Avg: -3.443e-03, Min: -5.001e-03, Max:  8.148e-02
+    Values           => Avg: -9.076e-02, Min: -3.582e-01, Max:  5.552e-01
+    Advantages       => Avg:  8.118e-03, Min: -4.692e-01, Max:  6.133e-01
+    Bootstrap Values => Avg:  7.490e-01, Min:  6.064e-01, Max:  8.315e-01
+    Returns          => Avg: 0.3363037109375, σ: 0.4256591796875
+    Value Normalizer => Mean: -1.747e-01, σ: 2.738e-01
+
+    FPS: 443346, Update Time: 0.74, Avg FPS: 493000
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.683
+      Collect Rollouts   => CPU: 0.531
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.467
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 490
+    Loss:  2.141e-03, A: -3.453e-05, V:  2.859e-02, E: -1.212e+00
+
+    Rewards          => Avg: -3.071e-03, Min: -5.001e-03, Max:  8.136e-02
+    Values           => Avg: -3.204e-02, Min: -3.167e-01, Max:  5.596e-01
+    Advantages       => Avg: -1.478e-02, Min: -4.878e-01, Max:  5.703e-01
+    Bootstrap Values => Avg:  6.357e-01, Min:  4.888e-01, Max:  7.534e-01
+    Returns          => Avg: 0.4581298828125, σ: 0.4168701171875
+    Value Normalizer => Mean: -1.721e-01, σ: 2.737e-01
+
+    FPS: 374551, Update Time: 0.87, Avg FPS: 490874
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.686
+      Collect Rollouts   => CPU: 0.535
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.470
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
+      Compute Advantages => CPU: 0.002
+      PPO                => CPU: 0.150
+        Gather Minibatch => CPU: 0.007, GPU: 0.007
+        AC Forward       => CPU: 0.005, GPU: 0.053
+        Optimize         => CPU: 0.087
+
+Update: 500
+    Loss:  1.433e-03, A: -5.684e-05, V:  2.743e-02, E: -1.223e+00
+
+    Rewards          => Avg: -3.250e-03, Min: -5.001e-03, Max:  7.159e-02
+    Values           => Avg: -5.026e-02, Min: -3.176e-01, Max:  5.620e-01
+    Advantages       => Avg: -8.408e-03, Min: -4.973e-01, Max:  6.025e-01
+    Bootstrap Values => Avg:  7.007e-01, Min:  5.454e-01, Max:  7.988e-01
+    Returns          => Avg: 0.4078369140625, σ: 0.4058837890625
+    Value Normalizer => Mean: -1.703e-01, σ: 2.738e-01
+
+    FPS: 373909, Update Time: 0.88, Avg FPS: 488590
+    PyTorch Memory Usage: 8.174GB (Reserved), 6.630GB (Current)
+    Update Iter Timing   => CPU: 0.690
+      Collect Rollouts   => CPU: 0.538
+        Cache RNN state  => CPU: 0.000
+        Policy Infer     => CPU: 0.061, GPU: 0.059
+        Simulator Step   => CPU: 0.473
+        Post Step Copy   => CPU: 0.001
+        Bootstrap Values => CPU: 0.001
